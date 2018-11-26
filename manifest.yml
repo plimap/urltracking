@@ -1,0 +1,10 @@
+---
+applications:
+- instances: 1
+  timeout: 180
+  name: urltracking
+  buildpack: java_buildpack
+  path: ./target/urltracking-1.0-SNAPSHOT.jar
+  memory: 1024M
+  domain: mybluemix.net
+  host: not-used
