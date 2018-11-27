@@ -88,8 +88,10 @@
 
   	function sendLink(){
   	var link = $('#txtLink').val();
+  	
+  	var checkedUrl = validURL(link);
 
-    if (link.length > 0) { 
+    if (link.length > 0 && checkedUrl==true ) { 
 
 	//POST request to API to create a new link entry in the database
       $.ajax({
@@ -115,6 +117,16 @@
   
   function clearText(){
 	  $('#txtLink').val('')
+  }
+  
+
+  function validURL(str) {
+    var regex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+    if(!regex .test(str)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 
